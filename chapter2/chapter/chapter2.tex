@@ -1,0 +1,484 @@
+\chapter{TXO: Transcription-Only genetic circuits as a novel cell-free approach for Synthetic Biology}
+
+\section{Foreword}
+
+In order to avoid using the cell-based approach, genetic circuits were prepared as cell-free systems using extracts from the non-model bacteria \textit{Cupriavidus metallidurans}. Cells were lysed using a non-ionic method allowing us to recover functional transcriptional regulators. Diverse heavy metals were detected by a mix of cell extract and small synthetic constructs carrying inducible promoters. Fluorescent RNA aptamers were used as output signal for the system, accelerating the observed response to a few minutes.
+
+This work is currently under review as a research article entitled “TXO: Transcription-Only genetic circuits as a novel cell-free approach for Synthetic Biology” in the peer-reviewed journal NAR Synthetic Biology. Sections from 3.2 to 3.9 show the manuscript to be published including its Supplementary Information. Additional information, official links and repositories are mentioned within the chapter text. 
+
+\section{Abstract }
+
+While synthetic biology represents a promising approach to solve real-world problems, the use of genetically modified organisms is a cause of legal and environmental concerns. Cell-free systems have emerged as a possible solution but much work is needed to optimize their functionality and simplify their usage for Synthetic Biology. Here we present TXO, transcription-only genetic circuits, independent of translation or post-translation maturation. RNA aptamers are used as reaction output allowing the generation of fast, reliable and simple-to-design transcriptional units. TXO cell-free reactions and their possible applications are a promising new tool for fast and simple bench-to-market genetic circuit and biosensor applications.
+
+
+\section{Introduction}
+
+Cells, including microbial, plant and mammalian cells, have been long engineered for responding to a plethora of environmental factors, benefiting from their intrinsic ability to process the entire cycle from the recognition of a specific target, to analysis of the information, and generation of an output signal \citep{khalil2010synthetic}. However, cell-based systems present also unavoidable disadvantages during their usage, including the risk of releasing genetically modified organisms (GMOs) into the environment, accumulation of mutations and genetic instability, uncontrollable side-reactions within the cell, and issues with viability maintenance during long-term storage \citep{bousse1996whole,gupta2019cell,kaur2015advances, yagi2007applications}.
+In order to solve these issues, cell-free systems (CFS), also known as transcription-translation (TX-TL) systems, have emerged as a promising alternative. CFS not only inherit most of the benefits from cell-based systems, but also avoid major challenges that they face. Typically, CFS are based on non-living cell-extracts or reconstituted systems that by not presenting a living prospect solve problems related to biosafety, cross-reactivity and long-term functionality maintenance. CFS are rather robust to factors that pose cellular stress, including sensitivity to toxic pollutants and to the typical “overload problem” observed when foreign “genetic circuits” are introduced into the cell \citep{borkowski2016overloaded}.
+TX-TL systems share with cells a problem hindering their usage in real-time detection. Response time in TX-TL systems may need a long time for transcription, translation and post-translational maturation to occur, in order to finally produce a detectable signal. For instance, Pardee and colleagues \citep{pardee2016rapid} developed a cell-free paper toehold-switch sensor for detection of the Zika virus that takes hours for the final visual results to come out \citep{borkowski2016overloaded}. Paper-based cell-free sensors that detected heavy metals and gamma-hydroxybutyrate by expressing sfGFP needed at least one hour for producing a measurable response \citep{grawe2019paper}. Considering the need for in-situ field analysis, an improvement of cell-free systems response time is necessary \citep{ejeian2018biosensors,justino2017recent}.
+Since CFS are open and easily modifiable systems \citep{niederholtmeyer2013implementation}, time-consuming translation and post-translational modification can be removed, allowing novel approaches with faster signal generation. Alternative output signals independent of translation and post-translational modification can provide the system with a simpler composition, lower resource requirements and, most importantly, a shorter response time. Here, we introduce a transcription-only (TXO) cell-free system using RNA aptamers as output signals rather than translated proteins.
+Fluorescent RNA aptamers are short ribonucleotide sequences that upon binding a specific compound, enhance (amplify) or dequench its fluorescence. RNA aptamers, such as Spinach \citep{paige2011rna}, iSpinach \citep{autour2016ispinach} and Broccoli \citep{filonov2014broccoli} have shown excellent properties for generating bright and stable fluorescence. In the past few years, RNA aptamers have been widely applied in live-cell imaging \citep{neubacher2019rna} and biosensing \citep{cho2009applications}. However, these previously reported aptamer-based sensors acted as both sensing elements (binding to target molecules) and signal generator at the same time \citep{dehghani2018aptamer,razmi2018recent}, requiring aptamers specifically designed for each target. 
+In TXO systems the functions for input detection (sensing), processing (analysis) and output generation (reporting) are decoupled, creating modular systems where aptamers can be used as universal signal generators. To exemplify the versatility of such system, here we used a simple cell-free extract from the microorganism \textit{Cupriavidus metallidurans} CH34, which carries most of the necessary heavy-metal (e.g., Hg$^+$, Pb$^{2+}$, Cu$^{2+}$, Zn$^{2+}$, Ni$^{2+}$, among others) responsive transcription factors and the RNA polymerase which they control \citep{monchy2007plasmids}. Since all necessary transcription factors are provided directly by the cell-free extract only the synthetic transcription unit must be changed to detect these different metal ions. Combining of the easy to design TXO system, with the high sensitivity of the sensing elements and the fast output signal generation provided by RNA aptamers, TXO is a promising tool for accelerating bench-to-market Synthetic Biology, most specifically where in-situ, simple to design and rapid applications are needed.
+
+
+\section{Methodology}
+
+\subsection*{Reagents and culture conditions}
+Fluorophores DFHBI (Tocris \#5609), DFHO (Tocris \#6434), DMABI and 2-HBI (provided by Dr. Jaffrey’s laboratory at Cornell University) were dissolved in DMSO (Fisher Scientific \#BP231) to prepare 2 mM stock solutions (for further information see Table \ref{table:32}). Our optimised transcription/detection buffer (OTDB) was prepared as a 10X stock as follows: Tris base 400 mM pH 7.5 adjusted with HCl (Sigma-Aldrich, \#T1503); MgCl$_2$·6(H$_2$O) 60 mM (Sigma-Aldrich, \#M2670); DTT 100 mM (Melford, \#MB1015) and Spermidine 20 mM (Alfa Aesar, \#A19096.03). Metal-ion solutions were prepared from soluble salts of analytical grade: CuSO$_4$·5H$_2$O (Sigma-Aldrich \#C8027), Arsenite NaAsO$_2$ (Sigma-Aldrich \#202673), Pb(NO$_3$)$_2$ (Sigma-Aldrich \#228621), HgCl$_2$ (Sigma-Aldrich \#215465), ZnCl$_2$ (Sigma Aldrich \#229997) and NiCl$_2$·6H$_2$O (Fisher Scientific \#AC27051) in double-deionised water and filter-sterilised before use.
+
+
+\subsection*{Strains and cell-free extract preparation}
+
+\textit{C. metallidurans} CH34 cells were cultivated on a Tris-buffered mineral medium (MM284) \citep{mergeay1985alcaligenes} supplemented with succinate 0.4 \%w/v, at 30$^{\circ}$C with constant shaking at 180 RPM. Escherichia coli JM109 cells were grown on Luria Broth (LB) at 37$^{\circ}$C. For cell-extract preparation, cells were collected at middle exponential phase (OD 0.6-0.8) by centrifugation at 3,900 × g and 4$^{\circ}$C for 10 min. Cells were resuspended in one tenth of the centrifuged volume in a non-ionic lysis buffer, which contains Triton X-100 0.1\%v/v (Sigma-Aldrich \#T9284), Tris base (40 mM) adjusted to pH 7.5 with HCl and lysozyme 50 mg/mL (Sigma-Aldrich \#L6876) for 30 min at 4$^{\circ}$C. The lysed extract was centrifuged at 12,000 × \textit{g}, 4$^{\circ}$C for 20 min and the supernatant was immediately used or saved at -80$^{\circ}$C for later use.
+
+\subsection*{Construction of RNA aptamers}
+
+Aptamer sequences (see Table \ref{table:3.1}) protected within the F30 scaffold (upper and lower sections) were synthesised as 120 bp oligonucleotide sequences (Sigma-Aldrich), and then extended using the 5 bp shared on the 3’ of each oligonucleotide for the annealing (see Figure \ref{NAR-fig1} and Table \ref{table:331}) A PCR reaction adding a T7 promoter/terminator pair on each aptamer (see Table \ref{table:3.1}) was carried out using Q5 High-Fidelity DNA Polymerase (New England Biolabs Inc.(NEB) \#M0491) and the following protocol: 95$^{\circ}$C for 5 min (1 cycle), 95$^{\circ}$C for 20 s, 54$^{\circ}$C for 10s and 72$^{\circ}$C for 20 s (35 cycles), with a final elongation at 72$^{\circ}$C for 5 min. Amplification was analysed in a 1.5 \% (w/v) agarose gel and purified from the PCR reaction using the QIAquick PCR Purification Kit (Qiagen, \#28104), and subsequently cloned in to the pMini-T plasmid using the PCR Cloning Kit (NEB \#E1202). Plasmids were extracted from \textit{E. coli} JM109 transformed cells using the QIAprep Spin Miniprep Kit (Qiagen) and sequence verified by Sanger sequencing using the BigDye Terminator v3.1 Cycle Sequencing Kit (Thermo Fisher Scientific) and an Applied Biosystems 3730XL DNA Analyzer (Edinburgh Genomics). 
+
+\begin{figure*}[ht]
+\begin{center}
+\hspace*{0cm}
+\includegraphics[height=220px]{./chapter2/chapter/figs/Imagen1.jpg}
+\end{center}
+\caption{Schematic diagrams of TXO cell free system with minimal requirements. \textbf{(a)} Sequence and production process of diverse RNA aptamers via PCR, showing addition of BsmBI sites for further Golden Gate manipulation. \textbf{(b)} In a TXO system there are minimal requirements such as an inducer, moderator/repressor, RNA polymerase and a final RNA output herewith represented as a fluorescent aptamer.}
+\label{NAR-fig1}
+\end{figure*}
+
+\subsection*{Biosensor transcriptional unit design}
+
+Diverse inducible promoters and a T7 terminator were added at the ends of the aptamer F30::iSpinach via PCR \citep{autour2016ispinach}. The PCR was carried out using Phusion High-Fidelity DNA Polymerase (NEB \#M0530) and oligonucleotides containing the promoters from clusters \textit{copAB}, \textit{arsBCD} from \textit{E. coli} MG1655 and \textit{merTPAD}, \textit{pbrAB}, \textit{czcN}, \textit{cnrH} from \textit{C. metallidurans} CH34 (see Table \ref{table:32}). Amplified products were analysed and cloned for replication as described above.
+
+\subsection*{RNA aptamer expression and detection.}
+
+Some previous protocols for in vitro transcription of fluorescent RNA aptamers \citep{paige2011rna, autour2016ispinach} include purification and concentration steps that complicate the use of aptamers for real-time detection. A combination of both main steps, expression and detection, was achieved at room temperature (25$^{\circ}$C) by using the OTDB buffer. In vitro transcription and detection assays were carried out using OTDB 1X, NTPs (2 mM each), Fluorophores 10 $\mu$M (see Table \ref{table:3.1}), NEB T7 RNA Polymerase (1.5 U/$\mu$L), linear target DNA (650 nM), using 15 $\mu$L total reaction volume in 384 Well Small Volume$^{TM}$ LoBase Black Microplates (Greiner Bio-One). Fluorescence was measured using a FluoStar Omega (BMG Labtech) plate reader, 10 mm bandpass, using 20 flashes per well and an orbital averaging of 4 mm, with 5 seconds of orbital shaking prior to each measurement, and filters as close as possible to the wavelength specified in literature (see Table \ref{table:3.1}). Fluorescence was thereafter imaged using a Safe Imager$^{TM}$ Blue-Light Transilluminator (Invitrogen) with an amber filter unit and a digital camera (Sony, DSC-RX100).
+
+\subsection*{Heavy metal detection by TXO assays}
+
+Transcriptional regulators MerR (Q5NUU7), PbrR (Q58AJ5), CzcS (Q44007)/CzcR (Q44006), CnrH (P37978), ArsR (Q1LCN6) and CueR (A0A2L0XBJ2) were provided into the working reaction directly in the form of cell extract from \textit{C. metallidurans} CH34 cells (30 \%v/v). Reactions were supplemented with increasing concentrations (0.3 $\mu$M, 2 $\mu$M and 7 $\mu$M) of Hg$^{2+}$, Cu$^{2+}$, Co$^{2+}$, Ni$^{2+}$, Pb$^{2+}$ and As$^{3+}$, in the form of the metallic salts mentioned before. Cell free metal contact induction was performed in 384 Well Small VolumeTM LoBase Black Microplates (Greiner Bio-One) at 25$^{\circ}$C, using DFHBI (10 $\mu$M) as fluorophore, and analysed in a FluoStar Omega (BMG Labtech) plate reader as described above.
+
+
+\section{Results}
+
+\subsection*{Fluorogenic RNA aptamers and TXO systems}
+
+Commonly, cell-free systems are associated with the use of TX-TL systems instead of living cells for the production of valuable compounds or the generation of translational biosensors. Their dependence on translation, however, increases the complexity and cost of the minimal reaction mixture needed for them to work. In order to generate an alternative approach, we evaluated the use of multiple fluorescent RNA aptamers as possible output signals for the generation of transcription-only cell-free systems.
+
+\begin{table}[ht]
+
+\caption{RNA Aptamers and their respective characteristics}
+\label{table:3.1}%
+{%\hspace{1.5cm}
+\begin{tabular*}{\columnwidth}{@{}llllll@{}}
+\hline
+\textbf{Aptamer} & \textbf{Emitted} & \textbf{Size} & \textbf{Ex/Em} & \textbf{Fluoro-} & \textbf{Reference}
+\\
+& \textbf{Colour} & \textbf{(bp)} & \textbf{(nm)} & \textbf{phore} & 
+\\
+\\
+\hline
+Broccoli & Green & 47 & 470/530 & DFHBI & \cite{filonov2014broccoli}
+\\
+Broccoli2X & Green & 157 & 470/530 & DFHBI & \cite{filonov2015gel}
+\\
+Spinach2 & Green & 95 & 480/520 & DFHBI & \cite{paige2011rna}
+\\
+iSpinach* & Green & 78 & 480/520 & DFHBI & \cite{autour2016ispinach}
+\\
+Corn & Orange & 45 & 480/520 & DFHO & \cite{song2017imaging}
+\\
+2-4** & Cyan & 100 & 400/460 & DMABI & \cite{paige2011rna}
+\\
+17-3*** & Yellow & 101 & 400/550 & DMABI & \cite{paige2011rna}
+\\
+6-8**** & Red & 101 & 400/600 & 2-HBI & \cite{paige2011rna}
+\\
+\hline
+\hline
+\end{tabular*}
+}
+\\
+{Ex/Em extracted from respective Ref. Hereafter named *Green, **Cyan, ***Yellow, ****Red due to their protection within the F30 scaffold. Further fluorophores information available in Table \ref{table:32}. Eight previously characterised fluorescent aptamers were initially screened (see Table \ref{table:3.1}).}
+\end{table}
+ These were synthesised as 120 bp oligonucleotides and amplified in an overlapping PCR using the 5 bp that they share at their 3’ end (see Material and Methods and Figure \ref{NAR-fig1}). Additionally, unprotected aptamers (Green, Cyan, Yellow, Red, Corn) were inserted within the F30 RNA scaffold, an engineered version of the naturally occurring \textit{phi}-29 viral RNA three-way junction motif, not cleaved by cellular nucleases \citep{filonov2014broccoli}. Additionally, BsmBI sites were added at both ends of each aptamer to allow insertion or replacement of the RNA aptamers via Golden Gate assembly if required in future applications (see Figure \ref{NAR-fig1}). RNA expression and fluorescence detection were performed at room temperature (25$^{\circ}$C) in order to simulate field conditions as closely as possible. Furthermore, in order to simplify their use we combined the expression and detection steps by using the novel OTDB buffer (see Materials and Methods), avoiding purification steps needed in some previous cell-free publications. Aptamers were selected primarily by difference in the colour emitted (green, red, orange, yellow, cyan), stability once protected within the F30 scaffold \citep{filonov2014broccoli}, length, fluorophore needed, and expression level under our previously mentioned experimental conditions (see Table \ref{table:3.1}).
+The linear PCR-generated fragments can be immediately used for in vitro transcription and fluorescence detection. We tested the expression of nine different aptamers with five different fluorophores using a plate reader and an inexpensive blue light/red filter system (see Figure \ref{NAR-fig2}). While previous studies regarded aptamers to be specific for a fluorophore (see Table \ref{table:3.1}), we have found that cross-reactivity is much higher. As shown in Figure \ref{NAR-fig2}a, Spinach, Broccoli and their derivatives, engineered to bind DFHBI, were found to fluoresce with DMABI and DFHO with their respective colours. Broccoli2x was the most unspecific even increasing the fluorescence of ROX, which we were using as positive fluorescence control. On the other hand, DFHO was the most promiscuous fluorophore, which also displayed background fluorescence with the negative control. PS2.M is a rybozyme used as negative control during this experiment. The aptamer fluorescence appeared very quickly after induction of transcription; after just a few minutes of incubation at room temperature, there was a significant difference between some aptamers and the negative control (see Figure \ref{NAR-fig2}b). However, the fluorescent signal kept increasing for 100 minutes (Figure \ref{NAR-fig2}b), indicating that the RNA polymerase remained active and the NTP pool was not exhausted for this period. Additionally, all F30::aptamers presented high stability over time when left on the bench at room temperature and without further protection. Aptamer-fluorophore complexes were stable for weeks without bleaching or loss of fluorescence (See Figure \ref{fig34}).
+
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[height=140px, width=300px]{chapter2/chapter/figs/Imagen2.png}
+\end{center}
+\caption{Fluorescent RNA aptamers expression. \textbf{(a)} Aptamers showing different colours under a blue light/red filter system after plate reader fluorescent measurement (16.5 h) and being observed by naked eye without the need for further equipment. A longer exposed image can be found in Figure \ref{fig34}.
+\textbf{(b)} Expression of diverse RNA aptamers over time detected at 480/520 nm. Coloured shades represent the variability (MAD) of three independent tests. }
+\label{NAR-fig2}
+\end{figure*}
+
+\subsection*{TXO cell-free biosensors}
+Short aptamers such as the Green aptamer allow incorporation into transcriptional units with ease and simplicity (see Materials and Methods). Considering the stability and optimization of the Green aptamer (F30::iSpinach) for expression under in vitro conditions, further experiments were performed with this aptamer. The Green aptamer (F30::iSpinach) was amplified via PCR under the control of diverse heavy metal inducible promoters and the T7 polymersase promoter as control (P$_{t7}$, P$_{cue}$, P$_{ars}$, P$_{mer}$, P$_{pbr}$, P$_{czc}$, P$_{cnr}$, see Material and Methods). Linear PCR products were used in reactions with different heavy metal concentrations (5 $\mu$M, 25 $\mu$M and 100 $\mu$M) with transcription factors and native RNA polymerase supplied from cell lysates (see Figure \ref{NAR-fig3}). Using our TXO cell free system concentrations as low as 2 $\mu$M were detected for lead, mercury, zinc, and arsenite. Nickel, on the other hand, was detected at 0.3 $\mu$M. All of them reached a 2 fold-change in fluorescence after just 20 min of initiation of the transcription reaction (see Figure \ref{NAR-fig3}) which kept increasing over time reaching after three hours values up to 10-times higher (see Figure \ref{NAR-figS2}).
+
+\begin{figure*}[t]
+\begin{center}
+\hspace*{0cm}
+\includegraphics[width=380px]{chapter2/chapter/figs/Imagen3.jpg}
+\end{center}
+\caption{Heavy metal detection by TXO Cell-free biosensors. Detection of Pb$^{2+}$, Hg$^{2+}$, Zn$^{2+}$, Ni$^{2+}$, Cu$^{2+}$ and As$^{3+}$
+using the TXO reaction Cell-free system and the Green RNA aptamer cloned with each specified promoter (P\textit{pbr}, P\textit{mer}, P\textit{cnr}, P\textit{czc}, P\textit{cop}, and P\textit{ars}). Constructs were induced using increasing concentrations of the specified heavy-metal. Excitation/Emission of 480/520 nm. Data points at 20 minutes; the time course can be found in Figure \ref{NAR-figS2}. Error bars represent the variability (MAD) of three independent tests.}
+\label{NAR-fig3}
+\end{figure*}
+
+
+\section{Discussion / Conclusions}
+TXO systems maintain the advantages of cell-free TX-TL systems in terms of uniformity and avoidance of regulatory issues related to live GMOs, and further increase the simplicity and speed of response at the expense of reduced flexibility, since new proteins can not be generated within the system. Hence, they are well suited to applications where simplicity and rapid response are paramount; for example, biosensors and diagnostics for use in field and point-of-care applications. Lack of translational capability means that reporters for system output must be in the form of nucleic acids. We tested eight previously described fluorescent aptamer-fluorophore systems and found that all could generate visible fluorescent responses in an optimized buffer system as a result of transcription with no further processing. Several of the aptamers showed the ability to bind a wider range of fluorophores than what has previously been reported; for example, Broccoli2X binds 4 out of the 5 fluorophores analysed (Figure \ref{NAR-fig2}a and \ref{fig34}), surprisingly including ROX (5-Carboxy-X-rhodamine N-succinimidyl ester) commonly used for basal line generation during routine fluorescent assays, such as qPCR. Using TXO systems fluorescent responses can be generated in a matter of minutes, as compared to an hour or more for reported TX-TL systems based on generation of fluorescent proteins or enzymes with chromogenic substrates \citep{borkowski2016overloaded,bernhard2013cell,carlson2012cell,kwon2015high,salehi2017cell,salehi2018biosensing}. Thus, we conclude that aptamer-fluorophore complexes are a suitable output for TXO synthetic biology systems.
+A further advantage of TXO systems is simplicity, meaning that they can be very rapidly generated and tested, even more so than TX-TL systems \citep{pardee2016rapid}. The aptamer-based reporter genes are small enough that they can be easily generated by annealing and extension of oligonucleotides (see Figure \ref{NAR-fig1}). PCR was used to add metal-responsive promoters to DNA encoding the F30::iSpinach reporter (‘Green’), and the PCR products were used directly for assays, with the necessary transcription factors being supplied by an unpurified lysate from \textit{C. metallidurans} CH34. Fluorescent response to metals was observed within minutes, with detection limits in these unoptimized systems below 0.3 $\mu$M (18 ppb) for nickel, below 2 $\mu$M for zinc (131 ppb), arsenic(III) (150 ppb), mercury (403 ppb) and lead (414 ppb) and 7 uM for copper (127 ppb). No response was observed for arsenic(V), presumably because the system lacked the reducing power necessary to reduce it to arsenic(III), the form actually detected by the ArsR repressor (Data not shown). Further optimization should reduce these limits of detection. Previous works with RNA aptamers for metal sensing, DasGupta et al. mentioned the use of a truncated form of the Spinach aptamer as a Pb2+ sensor, but this could have lead to false results at concentrations <2 ppm due to a lack of sensitivity and a weak output response \citep{alam2017fluorescent}.
+Since TXO systems are considerably simpler than TX-TL systems, with no requirement for ribosomes, tRNA, or associated enzymes, we expect that it will be possible to freeze-dry such systems for storage and distribution as previously reported for TX-TL systems \citep{grawe2019paper,pardee2014based}. Fluorescent signals may be further strengthened using alternative fluorophores such as DHFBI-1T \citep{song2014plug}. The visibly different colours, as well as different excitation and emission wavelengths for different aptamer-fluorophore complexes, raise the possibility of multiplexed assays as well as more complex approaches such as FRET and quenching. While this publication focuses on the use of aptamers as signal output in a TXO ststem, future research could exploit the advantages of translation independent systems introducing other known functions of RNA molecules. Examples include RNA-based molecule detection (e.g. using riboswitch aptamers) and signal processing (e.g. using RNA-RNA hybridisation networks or crRNA/gRNA) \citep{alam2017fluorescent, DasGupta2015a, etzel2017synthetic, patel2018synthetic, rodrigo2017model, jaffrey2018rna}. Possible improvements to the already existing technology could also imply the use of other RNA aptamers showing different properties, for instance, by improving the structure and conditions of other aptamers published in the original work by Paige et al, which emit fluorescence in different wavelength, i.e. red, yellow, cyan (see Table \ref{table:3.1} and Figure \ref{NAR-fig2}) or by using ribozymes, such as PS2.M, allowing additional possible transcriptional outputs and broadening the possibilities of TXO systems.
+Additionally, TXO systems can be made with no need for GMOs, using in vitro DNA manipulation and non-ionic detergent lysis of wild type ACDPI or Biosafety level 1 cells, plus non toxic chemicals and commercially available enzymes/proteins, so so procedures could easily be done in high schools or even at home, leading to a democratization of synthetic biology without the worrying risks of people making bioweapons or causing ecological disasters. Considering that algorithms are simply a sequence of instructions, typically to solve a class of problems or perform a computation, TXO systems offer a step forward in terms of simplicity, ease of implementation, and rapid response, and may be widely useful in synthetic biology for speeding up and simplifying genetic circuit algorithm design and response.
+
+
+
+\section{Data Availability}
+All datasets generated for this study are included in the manuscript and/or the supplementary files. More Data is available at 
+
+\section{Acknowledgments}
+
+  
+The authors acknowledge the valuable assistance of Dr. Samie R Jaffrey on providing diverse RNA aptamers and fluorophores, Dr. Michael Ryckelynck for providing the iSpinach aptamer and Dr. Simon J. Moore for his help in the cell-free system design. Authors also acknowledge the following funding sources: CONICYT/BC-PhD 72170403 (FM), Biotechnology and Biological Sciences Research Council (BBSRC) [grant number BB/J01446X/1] (MV). A pre-print version of the manuscript has been published on BioRxiv (Millacura et al., 2019).
+
+\section{Supplementary Material}
+
+
+\begin{table}[ht]
+%\captionsetup{labelformat=empty}
+\caption{Fluorophores information\\}
+\label{table:32}%
+{%\hspace*{-5cm}
+\begin{tabular*}{\columnwidth}{@{}lll@{}}
+\hline
+Abbreviation & Formula & Chemical name 
+\\
+\hline
+DFHBI & C$_{12}$H$_{10}$F$_{2}$N$_{2}$O$_{2}$ &  3,5-difluoro-4-hydroxybenzylidene 
+\\
+& &  imidazolinone
+\\
+DMABI* & C$_{14}$H$_{17}$N$_{3}$O$_{1}$ & 4-dimethylaminobenzylidene imidazo-
+\\
+&  & linone
+\\
+2-HBI* & C$_{12}$H$_{12}$N$_{2}$O$_{2}$ &  2-hydroxybenzlidene imidazolinone  
+\\
+DFHO & C$_{12}$H$_{9}$F$_{2}$N$_{3}$O$_{3}$ & 3,5-difluoro-4-hydroxybenzylidene 
+\\
+&  & imidazolinone-2-oxime
+\\
+ROX & C$_{37}$H$_{33}$N$_{3}$O$_{7}$ & 5-Carboxy-X-rhodamine N-succinimidyl  
+\\
+&  & ester
+\\
+\hline
+\hline
+\end{tabular*}
+}
+\\
+{\footnotesize{*provided by Dr. Sammie R. Jaffrey's laboratory}}
+\end{table}
+
+\begin{figure*} [ht] 
+\begin{center}
+\includegraphics[width=350px]{chapter2/chapter/figs/Imagen4.jpg}
+\end{center}
+%\captionsetup{labelformat=empty}
+\caption{Fluorescent RNA aptamers observed under a blue  light/red  filter  system. Aptamers  showing  different  colours  under  a  blue  light/red  filter  system  after measurement 16.5 h and being observed by naked eye without the need for further equipment. Picture taken with a Sony, DSC-RX100 camera and aperture}
+\label{fig34}%
+\end{figure*}
+
+\begin{table}[ht]
+%\captionsetup{labelformat=empty}
+\caption{Oligonucleotides used\\}
+\label{table:331}%
+{%\hspace*{-4cm}
+\begin{tabular*}{\columnwidth}{@{}lll@{}}
+\hline
+\textbf{Oligo} & \textbf{Name} & \textbf{Sequence}
+\\
+\\
+\hline
+F240 & Cyan$_{F30::2-4}Fw$ &  \MakeLowercase{TGTGGGAGACGCAACTGAATGAACCTAGAGTTATGCCAGG}
+\\
+& & \MakeLowercase{CTCTGAGCCTGCTTCGGCAGGTGCTATGATCGCCAGCGGTA}
+\\
+& & \MakeLowercase{TGCAGTCCGTAACTAGTCGCGTCTCC}
+\\
+F241 & Cyan$_{F30::2-4}Rv$ &  \MakeLowercase{GTGGGGAGACGCGACTAGTTACGGACTGCATACCGCTGGC}
+\\
+& & \MakeLowercase{GATCATAGCACCTGCCGAAGCAGGCTCAGAGCCTGGCATA}
+\\
+& & \MakeLowercase{ACTCTAGGTTCATTCAGTTGCGTCTCC}
+\\
+F242 & 	Red$_{F30::6-8}Fw$ &  \MakeLowercase{TGTGGGagacgcaactgaatgaaaatggcaaaatattcga}
+\\
+ & &  \MakeLowercase{gaagctggtctgcttcggcaggattctccaaggggtagatc}
+\\
+& & \MakeLowercase{gtgtattccgtaactagtcgcgtcTCC}
+\\
+F243 & Red$_{F30::6-8}Rv$ &  \MakeLowercase{GTGGGgagacgcgactagttacggaatacacgatctaccc}
+\\
+& & \MakeLowercase{cttggagaatcctgccgaagcagaccagcttctcgaatatt}
+\\
+& & \MakeLowercase{ttgccattttcattcagttgcgtcTCC}
+\\
+F244 & Yellow$_{F30::17-3}Fw$ &  \MakeLowercase{TGTGGGagacgcaactgaatgaagagcagtagcgagtag}
+\\
+& & \MakeLowercase{ttcacaagagctgcttcggcaggatcttgtaggaagtaaat}
+\\
+& & \MakeLowercase{gtgcaaatccgtaactagtcgcgtctcC}
+\\
+F245 & Yellow$_{F30::17-3}Rv$ &  \MakeLowercase{GTGGGgagacgcgactagttacggatttgcacatttacttc}
+\\
+& & \MakeLowercase{ctacaagatcctgccgaagcagctcttgtgaactactcgc}
+\\
+& & \MakeLowercase{tactgctcttcattcagttgcgtctCC}
+\\
+F296 & Green$_{F30::iSpinach}Fw$ &  \MakeLowercase{gaattcgcggccgcttCTAGAGTAATACGACTCACTATAG}
+\\
+&  &  \MakeLowercase{GGTTGCCATGTGTATGTGGGAGACGCGACTACGGTGAGGG}
+\\
+&  &  \MakeLowercase{TCGGGTCCAGTAGCTTCGGCTACTGTTGAGTAGAGTGTGG}
+\\
+F297 & Green$_{F30::iSpinach}Rv$ & \MakeLowercase{ctgcagcggccgctactagtaCCCCTCAAGACCCGTTTAG}
+\\
+&  &  \MakeLowercase{AGGCCCCAAGGGGTTATTTGCCATGAATGATCCCGAAGGA}
+\\
+&  &  \MakeLowercase{TCATCAGAGTATGTGGGGAGACGTACGGAGCCCACA}
+\\
+F310 & P$_{pbr}$::Green Fw &  \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGGGCGTCGGATGGGAGATG}
+\\
+&  &  \MakeLowercase{TCTTGACTCTATAGTAACTAGAGGGTGTTAAATCGGCAACT}
+\\
+&  &  \MakeLowercase{TGCCATGTGTATGTGGGAGACGCGACTACGGTGAGGGTC}
+\\
+F311 & P$_{mer}$::Green Fw & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGATCGCTTGACTCCGTACAT}
+\\
+& & \MakeLowercase{GAGTACGGAAGTAAGGTTACGCTATCCAATTTCAATTCGA}
+\\
+& & \MakeLowercase{ATTGCCATGTG}
+\\
+F312 & P$_{cop}$::Green Fw & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGAATTTCTTGACCTTCCCCT}
+\\
+& & \MakeLowercase{TGCTGGAAGGTTTAACCTTTATCACATTGCCATGTGTATGT}
+\\
+& & \MakeLowercase{GGGAGACGCG}
+\\
+F313 & P$_{ars}$::Green Fw & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGGTATATACACATTCGTTA}
+\\
+ &  & \MakeLowercase{AGTCATATATGTTTTTGACTTATCCGCTTCGAAGAGAGAC}
+\\
+&  & \MakeLowercase{ACTACCTGCAACTTGCCATGTGTATGTGGGAGACGCGACT}
+\\
+F330 & Corn$_{F30::Corn}Fw$ & \MakeLowercase{GATCCTTCGGGATCATTCATGGCAAATAACCCCTTGGGGC}
+\\
+& & \MakeLowercase{CTCTAAACGGGTCTTGAGGGGTACTAGTAGCGGCCGCTG}
+\\
+&& \MakeLowercase{CAGtactata}
+\\
+F331 & Corn$_{F30::Corn}$Rv & \MakeLowercase{CTCCTCAGACCTCCTTCCTCGCGCcgtctCCCACATACAC}
+\\
+& & \MakeLowercase{ATGGCAACCCTATAGTGAGTCGTATTACTCTAGaagcgg}
+\\
+&& \MakeLowercase{ccgcgaattc}
+\\
+\hline
+\end{tabular*}
+}{ }
+\end{table}
+
+\newpage
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+\begin{table}[ht!]
+\label{table:332}
+{%\hspace*{-4cm}
+\begin{tabular*}{\columnwidth}{@{}lll@{}}
+\hline
+\textbf{Oligo} & \textbf{Name} & \textbf{Sequence}
+\\
+\\
+\hline
+F404 & 	P$_{czcN}$::GreenFw & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGggagggcgtctctg}
+\\
+&  &  \MakeLowercase{ggtgtgtgctgaaaatggccaagacagtctatgtcc}
+\\
+&  &  \MakeLowercase{cagaagatgactgtcagattgccgagctTTGCCATG}
+\\
+&  &  \MakeLowercase{TGTATGTGGGAG}
+\\
+F405 & P$_{cnr}$::GreenFw & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGggaggcctgaagc}
+\\
+& & \MakeLowercase{cggaacatcgacctgcttacgatcgcgttcttatcg}
+\\
+& & \MakeLowercase{atgcacTTGCCATGTGTATGTGGGAGACG}
+\\
+F408 & PS2M$_Fw$ & \MakeLowercase{gaattcgcggccgcttCTAGAGTAATACGACTCACT}
+\\
+&  &  \MakeLowercase{ATAGGGGTGGGTAGGGCGGGTTGGATAACCCCTTG}
+\\
+&  &  \MakeLowercase{GGGCCTCTAAACGGGTCCTTGAGGGGtactagtagc}
+\\
+& & \MakeLowercase{ggccgctgcagTAT}
+\\
+F409 & PS2M$_Rv$ & \MakeLowercase{ATActgcagcggccgctactagtaCCCCTCAAGAC}
+\\
+& & \MakeLowercase{CCGTTTAGAGGCCCCAAGGGGTTATCCAACCCGCC}
+\\
+& & \MakeLowercase{CTACCCACCCCTATAGTGAGTCGTATTACTCTAGaa}
+\\
+& & \MakeLowercase{gcggccgcgaattc}
+\\
+F296-F297 & BBK::P$_{T7}$::Green & \MakeLowercase{gaattcgcggccgcttCTAGAGTAATACGACTCACT}
+\\
+& ::T$_{T7}$::BBK& \MakeLowercase{ATAGGGTTGCCATGTGTATGTGGGAGACGCGACTAC}
+\\
+& & \MakeLowercase{GGTGAGGGTCGGGTCCAGTAGCTTCGGCTACTGTTG}
+\\
+& & \MakeLowercase{AGTAGAGTGTGGGCTCCGTAGTCGCGTCTCCCCACA}
+\\
+&  & \MakeLowercase{TACTCTGATGATCCTTCGTCGGGTCCAGTAGCTTCGG}
+\\
+&  & \MakeLowercase{CTACTGTTGAGTAGAGTGTGGGCTCCGTAGTCGCGTC}
+\\
+& & \MakeLowercase{TCCCCACATACTCTGATGATCCTTCGGGATCATTCAT}
+\\
+& & \MakeLowercase{GGCAAATAACCCCTTGGGGCCTCTAAACGGGTCTTG}
+\\
+& & \MakeLowercase{AGGGGtactagtagcggccgctgcag}
+\\
+F313-F297 & BBK::P$_{ars}$::Greeen & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGGTATATACACATTC}
+\\
+& ::T$_{T7}$::BBK & \MakeLowercase{GTTAAGTCATATATGTTTTTGACTTATCCGCTTCGAAG}
+\\
+& & \MakeLowercase{AGAGACACTACCTGCAACTTGCCATGTGTATGTGGG}
+\\
+& & \MakeLowercase{AGACGCGACTACGGTGAGGGTCGGGTCCAGTAGCT}
+\\
+& & \MakeLowercase{TCGGCTACTGTTGAGTAGAGTGTGGGCTCCGTAGTCG}
+\\
+&& \MakeLowercase{CGTCTCCCCACATACTCTGATGATCCTTCGGGATCAT}
+\\
+& & \MakeLowercase{TCATGGCAAATAACCCCTTGGGGCCTCTAAACGGG}
+\\
+& & \MakeLowercase{TCTTGAGGGGtactagtagcggccgctgcag}
+\\
+F405-F297 & BBK::P$_{cnr}$::Green & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGggaggcctgaagc}
+\\
+& ::T$_{T7}$::BBK & \MakeLowercase{cggaacatcgacctgcttacgatcgcgttcttatcg}
+\\
+& & \MakeLowercase{atgcacTTGCCATGTGTATGTGGGAGACGCGACTAC}
+\\
+& & \MakeLowercase{GGTGAGGGTCGGGTCCAGTAGCTTCGGCTACTGTTG}
+\\
+& & \MakeLowercase{AGTAGAGTGTGGGCTCCGTAGTCGCGTCTCCCCACA}
+\\
+&&\MakeLowercase{TACTCTGATGATCCTTCGGGATCATTCATGGCAAATA}
+\\
+& & \MakeLowercase{ACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGtac}
+\\
+& & \MakeLowercase{tagtagcggccgctgcag}
+\\
+
+
+
+\hline
+\end{tabular*}
+} { }
+\end{table}
+
+\newpage
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+\begin{table}[ht!]
+\label{table:333}
+{%\hspace*{-4cm}
+\begin{tabular*}{\columnwidth}{@{}lll@{}}
+\hline
+\textbf{Oligo} & \textbf{Name} & \textbf{Sequence}
+\\
+\\
+\hline
+F312-F297 & BBK::P$_{cop}$::Green & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGAATTTCTTGACCTTCC}
+\\
+& ::T$_{T7}$::BBK & \MakeLowercase{CCTTGCTGGAAGGTTTAACCTTTATCACATTGCCATGT}
+\\
+&  & \MakeLowercase{GTATGTGGGAGACGCGACTACGGTGAGGGTCGGGTC}
+\\
+&  & \MakeLowercase{CAGTAGCTTCGGCTACTGTTGAGTAGAGTGTGGGCTC}
+\\
+& & \MakeLowercase{CGTAGTCGCGTCTCCCCACATACTCTGATGATCCTTCG}
+\\
+& & \MakeLowercase{GGATCATTCATGGCAAATAACCCCTTGGGGCCTCTAA} 
+\\
+& & \MakeLowercase{ACGGGTCTTGAGGGGtactagtagcggccgctgcag} 
+\\
+F404-F297 & BBK::P$_{czc}$::Green & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGggagggcgtctctgg}
+\\
+&::T$_{T7}$::BBK & \MakeLowercase{gtgtgtgctgaaaatggccaagacagtctatgtccca}
+\\
+& & \MakeLowercase{gaagatgactgtcagattgccgagctTTGCCATGTGTA}
+\\
+& & \MakeLowercase{TGTGGGAGACGCGACTACGGTGAGGGTCGGGTCCAG}
+\\
+& & \MakeLowercase{TAGCTTCGGCTACTGTTGAGTAGAGTGTGGGCTCCGTA}
+\\
+& & \MakeLowercase{GTCGCGTCTCCCCACATACTCTGATGATCCTTCGGGAT}
+\\
+&&\MakeLowercase{CATTCATGGCAAATAACCCCTTGGGGCCTCTAAACG}
+\\
+& & \MakeLowercase{GGTCTTGAGGGGtactagtagcggccgctgcag}
+\\
+F311-F297 & BBK::P$_{mer}$::Green & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGATCGCTTGACTCCGT}
+\\
+& ::T$_{T7}$::BBK& \MakeLowercase{ACATGAGTACGGAAGTAAGGTTACGCTATCCAATTT}
+\\
+&  & \MakeLowercase{CAATTCGAATTGCCATGTGTATGTGGGAGACGCGAC}
+\\
+& & \MakeLowercase{TACGGTGAGGGTCGGGTCCAGTAGCTTCGGCTACTG}
+\\
+&& \MakeLowercase{TTGAGTAGAGTGTGGGCTCCGTAGTCGCGTCTCCCCA}
+\\
+& & \MakeLowercase{CATACTCTGATGATCCTTCGGGATCATTCATGGCAAA}
+\\
+& & \MakeLowercase{TAACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGt}
+\\
+& & \MakeLowercase{actagtagcggccgctgcag}
+\\
+F310-F297 & BBK::P$_{pbr}$::Green & \MakeLowercase{GAATTCGCGGCCGCTTCTAGAGGGCGTCGGATGGGA}
+\\
+& ::T$_{T7}$::BBK & \MakeLowercase{GATGTCTTGACTCTATAGTAACTAGAGGGTGTTAAAT}
+\\
+& & \MakeLowercase{CGGCAACTTGCCATGTGTATGTGGGAGACGCGACTA}
+\\
+& & \MakeLowercase{CGGTGAGGGTCGGGTCCAGTAGCTTCGGCTACTGTTG}
+\\
+&& \MakeLowercase{AGTAGAGTGTGGGCTCCGTAGTCGCGTCTCCCCACA}
+\\
+& & \MakeLowercase{TACTCTGATGATCCTTCGGGATCATTCATGGCAAATA}
+\\
+& & \MakeLowercase{ACCCCTTGGGGCCTCTAAACGGGTCTTGAGGGGtaC}
+\\
+& & \MakeLowercase{tagtagcggccgctgcag}
+\\
+\hline
+\hline
+\end{tabular*}
+} { }
+\end{table}
+
+
+\begin{figure*} [ht] 
+\begin{center}
+%\hspace*{-2.5cm}
+\includegraphics[width=500px]{chapter2/chapter/figs/figureS2.png}
+\end{center}
+%\captionsetup{labelformat=empty}
+\caption{TXO sensors over time with different metals. Coloured shades represent variability of three independent tests.}
+\label{NAR-figS2}%
+\end{figure*}

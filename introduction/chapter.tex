@@ -1,0 +1,35 @@
+\documentclass[12pt,english,a4paper]{report}
+\input{../common/packages.tex}
+\input{../common/definitions.tex}
+
+\setlength{\textheight}{24cm}
+\setlength{\headsep}{0cm}
+
+\newcommand{\dir}{chapter}
+
+\begin{document}
+\title{Introduction}
+\author{Felipe Aguilera Millacura}
+\date{
+  \today\\
+  \vspace{2cm}
+  {\centering\footnotesize\begin{tabular}[c]{c}
+      \includegraphics[height=3cm]{../preface/UoECentredLogoCMYKv1160215.png}\\
+      School of Biological Sciences\\
+      Institute of Quantitative Biology,\\
+      Biochemistry and Biotechnology\\
+      University of Edinburgh\\
+      Edinburgh, EH9 3JQ\\
+      United Kingdom
+    \end{tabular}}
+  }
+\maketitle
+\tableofcontents
+\input{\dir/introduction.tex}
+%\clearpage
+%\listoffigures
+%\listoftables
+%\listofalgorithms
+\newpage
+\bibliography{bibliography}
+\end{document}
